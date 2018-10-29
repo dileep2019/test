@@ -27,12 +27,12 @@
 	<distributionManagement>
 		 <snapshotRepository>
 		    <id>nexus</id>
-		    <url>http://52.90.72.164:8081/repository/test-snapshot/</url>
+		    <url>http://10.0.13.25:8081/repository/maven-snapshots/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexus</id>
-		    <url>http://52.90.72.164:8081/repository/test-java/</url>
+		    <url>http://10.0.13.25:8081/#admin/repository/repositories/</url>
 		</repository>
   	</distributionManagement>
 	
