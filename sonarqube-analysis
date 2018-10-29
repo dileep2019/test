@@ -13,7 +13,22 @@ node{
         withSonarQubeEnv('sonarqube') { 
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
-    }
+   stage('NexusArtifactUploaderJob') {
+    steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus3.14.0-04')
+        protocol('http')
+        nexusUrl('http://10.0.13.25:8081')
+        groupId('sp.sd')
+        version('2.4')
+        repository('NexusArtifactUploader')
+        credentialsId('44620c50-1589-4617-a677-7563985e46e1')
+        artifact {
+            artifactId('maven')
+            type('jar')
+            classifier('debug')
+            file('nexus-artifact-uploader.jar')
+   }
    
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
