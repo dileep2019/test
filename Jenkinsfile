@@ -1,6 +1,6 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/dileepgudivada/my-app/'
+     git 'https://github.com/dileep2018/my-app'
    }
    stage('Compile-Package'){
       // Get maven home path
