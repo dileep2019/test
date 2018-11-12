@@ -8,3 +8,20 @@
 	<name>my-app</name>
 
 	<url>http://maven.apache.org</url>
+    <dependencies>
+      <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.13.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-firefox-driver</artifactId>
+      <version>3.14.0</version>
+   </dependency>
+   <dependency>
+     <groupId>org.seleniumhq.selenium</groupId>
+     <artifactId>selenium-remote-driver</artifactId>
+     <version>3.11.0</version>
+  </dependency	    
+
