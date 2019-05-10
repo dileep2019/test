@@ -16,16 +16,16 @@ node ('javafinalslave') {
     echo'SonarCode Analysis'
     //def mvnHome = tool name: 'maven-3', type: 'maven'
     withSonarQubeEnv('sonarqube_java'){
-    sh "${mvnHome}/bin/mvn sonar:sonar"
+    //sh "${mvnHome}/bin/mvn sonar:sonar"
     sleep 3 
     }
     
     task'Quality Gate'
     echo'Quality Gate'
-    timeout(time: 1, unit: 'HOURS'){  // Just in case something goes wrong, pipeline will be killed after a timeout
-    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-    if (qg.status != 'OK') {
-    error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    //timeout(time: 1, unit: 'HOURS'){  // Just in case something goes wrong, pipeline will be killed after a timeout
+    //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+   // if (qg.status != 'OK') {
+    //error "Pipeline aborted due to quality gate failure: ${qg.status}"
     sleep 3
       }
     }
@@ -36,6 +36,10 @@ node ('javafinalslave') {
     sh "${mvnHome}/bin/mvn clean package -DskipTests=true"
     sleep 3
     
+    task'Build Docker Imager'
+    sh 'docker build -t dileep2018/myweb:0.0.1 .'
+    sleep 3
+
     task'NexusDeploy'
     echo 'Store to Artifactory'
     sh "${mvnHome}/bin/mvn deploy -DskipTests=true"
