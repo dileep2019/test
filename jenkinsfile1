@@ -53,7 +53,7 @@ node ('master') {
     echo'Functional Test'
     build job: 'seleniumtest'
     sleep 3
-    }
+    
     stage('PROD') {
     task'DeploytoProduction'
     echo'DeploytoProduction'
