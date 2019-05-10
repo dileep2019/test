@@ -1,4 +1,4 @@
-node ('any') {	
+node ('Master') {	
 
     stage('DEV'){
     task'SCM Checkout'
