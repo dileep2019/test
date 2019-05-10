@@ -8,15 +8,15 @@ node{
  }
  
  stage('Build Docker Imager'){
-   sh 'docker build -t kammana/myweb:0.0.1 .'
+   sh 'docker build -t dileep2018/myweb:0.0.1 .'
  }
  
  stage('Push to Docker Hub'){
  
 	 withCredentials([string(credentialsId: 'github-pwd', variable: 'dockerHubPwd')]) {
-        sh "docker login -u kammana -p ${dockerHubPwd}"
+        sh "docker login -u dileep2018 -p ${dockerHubPwd}"
      }
-	 sh 'docker push kammana/myweb:0.0.1'
+	 sh 'docker push dileep2018/myweb:0.0.1'
  }
  stage('Remove Previous Container'){
 	try{
