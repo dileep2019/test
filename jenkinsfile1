@@ -1,4 +1,4 @@
-node ('javafinalslave') {	
+node ('master') {	
 
     stage('DEV'){
     task'SCM Checkout'
